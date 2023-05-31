@@ -15,11 +15,11 @@ class Rating {
     const accountAge = data.createdAt ? (new Date().getFullYear() - data.createdAt.getFullYear()) * 365 : 0;
 
     // Console log all the data for debugging
-    console.log("Account age: ", accountAge);
-    console.log("Total followers: ", data.totalFollowers);
-    console.log("Total views: ", data.totalViews);
-    console.log("Total videos: ", data.totalVideos);
-    console.log("Total videos during the last year: ", data.totalVideosYear);
+    // console.log("Account age: ", accountAge);
+    // console.log("Total followers: ", data.totalFollowers);
+    // console.log("Total views: ", data.totalViews);
+    // console.log("Total videos: ", data.totalVideos);
+    // console.log("Total videos during the last year: ", data.totalVideosYear);
 
 
     // Calculate the user's rating
