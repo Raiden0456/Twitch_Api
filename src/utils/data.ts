@@ -6,30 +6,6 @@ const apiClient = new ApiClient({ authProvider });
 
 
 class User {
-  // async getSubscriberCount(nickname: string) {
-  //   const browser = await puppeteer.launch({ headless: 'new' });
-    
-  //   try {
-  //     const page = await browser.newPage();
-  //     // Navigate to the Twitch channel
-  //     await page.goto(`https://www.twitch.tv/${nickname}`);
-  //     await page.waitForSelector('.eUotgq');
-  
-  //     // Extract the subscriber count
-  //     const subscriberParse = await page.$eval(".eUotgq", el => el.textContent);
-  //     const subscriberCount = subscriberParse ? subscriberParse : '0';
-  //     // Log the subscriber count
-  //     console.log(`User ${nickname} has approximately ${subscriberCount} subscribers.`);
-  //     return parseInt(subscriberCount);
-  //   } catch (error) {
-  //     console.error(`Failed to get subscriber count for user ${nickname}: ${error}`);
-  //   } finally {
-  //     // Close the browser
-  //     await browser.close();
-  //     return 
-  //   }
-  // }
-
   async getAllData(nickname: string) {
 
     const userData = await apiClient.helix.users.getUserByName(nickname);
