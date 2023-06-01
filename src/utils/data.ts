@@ -9,7 +9,7 @@ class User {
   async getAllData(nickname: string) {
 
     const userData = await apiClient.helix.users.getUserByName(nickname);
-    // console.log("User data: ", userData);
+    console.log("User data: ", userData);
 
     const channelData = userData ? await apiClient.helix.channels.getChannelInfo(userData?.id) : null;
     // console.log("Channel data: ", channelData);
@@ -39,7 +39,6 @@ class User {
       displayName: userData?.displayName,
       language: channelData?.language,
       createdAt: userData?.creationDate,
-      totalViews: userData?.views,
       totalFollowers: totalFollowers,
       totalVideos: videoAmount,
       totalVideosYear: videoAmountYear,

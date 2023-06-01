@@ -3,7 +3,6 @@ interface twitchdata {
   displayName: string,
   language: string,
   createdAt: Date,
-  totalViews: number,
   totalFollowers: number,
   totalVideos: number,
   totalVideosYear: number,
@@ -23,7 +22,7 @@ class Rating {
 
 
     // Calculate the user's rating
-    const rating = data.totalFollowers * 0.25 + data.totalViews * 0.25 + accountAge * 0.2 + data.totalVideos * 0.15 + data.totalVideosYear * 0.15;
+    const rating = data.totalFollowers * 0.25 + accountAge * 0.2 + data.totalVideos * 0.15 + data.totalVideosYear * 0.15;
 
     // Construct json object with rating data
     const ratingData = {

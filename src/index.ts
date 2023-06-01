@@ -32,7 +32,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question(`Enter your Twitch username: `, async (username: string) => {
+rl.question(`Enter a Twitch username: `, async (username: string) => {
   const user = new User();
   const rating = new Rating();
 
