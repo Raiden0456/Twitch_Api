@@ -1,32 +1,34 @@
 interface twitchdata {
-  id: number,
-  displayName: string,
-  language: string,
-  createdAt: Date,
-  totalFollowers: number,
-  totalVideos: number,
-  totalVideosYear: number,
+  id: number;
+  displayName: string;
+  language: string;
+  totalFollowers: number;
+  totalVideos: number;
+  totalVideosYear: number;
+  totalViewsMonth: number;
 }
 
 class Rating {
   async calculateRating(data: twitchdata) {
-    // The odler the account is, the higher the rating
-    const accountAge = data.createdAt ? (new Date().getFullYear() - data.createdAt.getFullYear()) * 365 : 0;
-
-    // Console log all the data for debugging
-    // console.log("Account age: ", accountAge);
-    // console.log("Total followers: ", data.totalFollowers);
-    // console.log("Total views: ", data.totalViews);
-    // console.log("Total videos: ", data.totalVideos);
-    // console.log("Total videos during the last year: ", data.totalVideosYear);
-
-
+    const top_average = 2500000;
     // Calculate the user's rating
-    const rating = data.totalFollowers * 0.25 + accountAge * 0.2 + data.totalVideos * 0.15 + data.totalVideosYear * 0.15;
+    let rating =
+      data.totalFollowers * 0.4 +
+      data.totalVideos * 0.2 +
+      data.totalVideosYear * 0.2 +
+      data.totalViewsMonth * 0.2;
+
+    // Round the rating to integer
+    rating = Math.round(rating);
+
+    // Get rating in percentage if it's above the top average rating (6 million) set to 100%
+    let ratingPercentage = rating > top_average ? 100 : (rating / top_average) * 100;
+    ratingPercentage = Math.round(ratingPercentage);
 
     // Construct json object with rating data
     const ratingData = {
-      rating: rating
+      rating: rating,
+      ratingPercentage: ratingPercentage,
     };
 
     return ratingData;

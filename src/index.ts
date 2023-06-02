@@ -1,7 +1,7 @@
 import readline from "readline";
 import fs from "fs";
 import dotenv from "dotenv";
-import express from 'express';
+import express from "express";
 
 import User from "./utils/data.js";
 import Rating from "./utils/rating.js";
@@ -9,17 +9,16 @@ import Token from "./utils/token.js";
 
 dotenv.config();
 
-
 // Set up the server
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   const code = req.query.code;
   if (code) {
     res.send(`Your authorization code is: ${code}`);
   } else {
-    res.send('No authorization code found');
+    res.send("No authorization code found");
   }
 });
 app.listen(port);
