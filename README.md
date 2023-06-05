@@ -11,7 +11,7 @@
    ```bash 
    npm install
    ```
-3. Set env variables shown in .env.example file
+3. Set env variables shown in `.env.example` file
 redirect URL should be have the path you've registered in your twitch app
 
 4. Run script in dev 
