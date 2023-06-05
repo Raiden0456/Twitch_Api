@@ -4,7 +4,6 @@
 
 - Register an application on Twitch: https://dev.twitch.tv/console/apps/create
 - Get the Client ID and Client Secret from the application you just created
-- Get the OAuth token from the application you just created
 ---
 ## Usage
 1. Install dependences 
