@@ -6,7 +6,14 @@ const apiClient = new ApiClient({ authProvider });
 
 class User {
   async getAllData(nickname: string) {
-    const userData = await apiClient.helix.users.getUserByName(nickname);
+
+    let userData;
+    if (nickname.toLowerCase() === "mine") {
+      console.log("Getting your data");
+      userData = await apiClient.helix.users.getMe();
+    } else {
+      userData = await apiClient.helix.users.getUserByName(nickname);
+    }
 
     const channelData = userData
       ? await apiClient.helix.channels.getChannelInfo(userData?.id)
